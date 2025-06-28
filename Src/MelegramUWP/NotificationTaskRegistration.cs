@@ -22,14 +22,23 @@ namespace MelegramUWP
                 Debug.WriteLine("[!] Background tasks are not allowed.");
                 return;
             }
-            // Регистрируем задачу
-            var builder = new BackgroundTaskBuilder
+
+            try
             {
-                Name = "NotificationTask",
-                TaskEntryPoint = "BackgroundTasks.NotificationTask"
-            };
-            builder.SetTrigger(new TimeTrigger(15, false)); // Каждые 15 минут...
-            builder.Register();
+                // Регистрируем задачу
+                var builder = new BackgroundTaskBuilder
+                {
+                    Name = "NotificationTask",
+                    TaskEntryPoint = "BackgroundTasks.NotificationTask"
+                };
+                builder.SetTrigger(new TimeTrigger(15, false)); // Каждые 15 минут...
+                builder.Register();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[ex] NotificationTaskRegistration error: " 
+                    + ex.Message);
+            }
         }
     }
 }

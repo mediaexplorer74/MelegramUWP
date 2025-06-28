@@ -1,4 +1,4 @@
-## Melegram 1.0.0-alpha - main branch
+## Melegram 1.0.1-alpha - main branch
 
 ![](/Images/logo.png)
 
@@ -8,6 +8,9 @@ My fast & dirty R.E. of [Melegram WP8](https://www.reddit.com/r/windowsphone/com
 ## Functional features
 - Experimental "Each 15 min. Notification about new messages" background task
 
+## Screenshots
+![](/Images/sshot01.png)
+![](/Images/sshot02.png)
 
 ## Tech. details
 - App type: UWP
@@ -22,6 +25,13 @@ My fast & dirty R.E. of [Melegram WP8](https://www.reddit.com/r/windowsphone/com
 - https://blogs.windows.com/windowsdeveloper/2016/08/01/battery-awareness-and-background-activity/
 - https://stackoverflow.com/questions/45897106/uwp-background-task-operation-error
 - https://learn.microsoft.com/ru-ru/previous-versions/windows/apps/hh977046(v=win.10)
+
+## Bugs
+- No notifications :(
+
+## TODO
+- Improve UI
+- Fix background task run
 
 ## ..
 As is. No support. RnD it yourself.

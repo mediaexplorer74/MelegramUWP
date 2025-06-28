@@ -16,7 +16,11 @@ namespace MelegramUWP
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             // Регистрируем фоновую задачу уведомлений
-            NotificationTaskRegistration.Register();
+            try
+            {
+                NotificationTaskRegistration.Register();
+            }
+            catch { }
 
             Frame rootFrame = Window.Current.Content as Frame;
             if (rootFrame == null)
