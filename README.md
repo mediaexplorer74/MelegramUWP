@@ -1,4 +1,4 @@
-## Melegram 2.0.0-alpha - main branch
+## Melegram 1.0.3-alpha - v1 branch
 
 ![](/Images/logo.png)
 
@@ -7,23 +7,17 @@ My fast & dirty R.E. of [Melegram WP8](https://www.reddit.com/r/windowsphone/com
 
 ## Functional features
 - Experimental "Each 15 min. Notification about new messages" background task
-- Live tiles "logics" :)
 
 ## Screenshots
 ![](/Images/sshot01.png)
 ![](/Images/sshot02.png)
 
-## Status
-- Draft / Early bird / Prototype (many things uncompleted yet)
-- Experimenting with Notifications, Pushes, and Live Tiles 
-
 ## Tech. details
 - App type: UWP
 - Win. SDK used: 19041
-- Min. Win SDK used: 14393
+- Min. Win SDK used: 15063
 
 ## Reference(s)
-- https://github.com/colinkiama/YearProgressUWP/) YearProgressUWP, cool Timer / Notification / Tiles handling example 
 - https://www.reddit.com/r/windowsphone/comments/1llzw9v/project_melegram_update_b2_settings_more_features/
 - https://learn.microsoft.com/en-us/windows/apps/develop/launch/create-and-register-a-background-task
 - https://stackoverflow.com/questions/55638299/background-task-registration-fails/55643800
@@ -34,8 +28,8 @@ My fast & dirty R.E. of [Melegram WP8](https://www.reddit.com/r/windowsphone/com
 
 
 ## TODO
-- Improve UI
-- Fix background task run
+- Improve UI (CSS injection, etc.)
+- Test & Fix background task ...
 
 ## ..
 As is. No support. RnD it yourself.
