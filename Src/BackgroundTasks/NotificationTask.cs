@@ -40,17 +40,17 @@ namespace BackgroundTasks
                 }
 
                 // Получить сохранённое значение (например, из LocalSettings)
-                //var 
                 localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
                 object lastCountObj = localSettings.Values["LastNotifCount"];
                 int lastCount = lastCountObj is int ? (int)lastCountObj : 0;
 
-                if (notifCount > lastCount)
+                //DEBUG
+                if (true)//(notifCount > lastCount)
                 {
                     // Показать toast-уведомление
                     string toastXml = $@"<toast><visual><binding template='ToastGeneric'>
                         <text>Новые сообщения</text>
-                        <text>У вас {notifCount} новых сообщений!</text>
+                        <text>У вас {notifCount - lastCount} новых сообщений!</text>
                     </binding></visual></toast>";
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.LoadXml(toastXml);

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -20,7 +21,11 @@ namespace MelegramUWP
             {
                 NotificationTaskRegistration.Register();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[ex] NotificationTaskRegistration.Register error:" 
+                    + ex.Message);
+            }
 
             Frame rootFrame = Window.Current.Content as Frame;
             if (rootFrame == null)

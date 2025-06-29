@@ -1,4 +1,4 @@
-## Melegram 1.0.1-alpha - main branch
+## Melegram 1.0.2-alpha - main branch
 
 ![](/Images/logo.png)
 
@@ -15,7 +15,7 @@ My fast & dirty R.E. of [Melegram WP8](https://www.reddit.com/r/windowsphone/com
 ## Tech. details
 - App type: UWP
 - Win. SDK used: 19041
-- Min. Win SDK used: 14393
+- Min. Win SDK used: 15063
 
 ## Reference(s)
 - https://www.reddit.com/r/windowsphone/comments/1llzw9v/project_melegram_update_b2_settings_more_features/
@@ -26,12 +26,10 @@ My fast & dirty R.E. of [Melegram WP8](https://www.reddit.com/r/windowsphone/com
 - https://stackoverflow.com/questions/45897106/uwp-background-task-operation-error
 - https://learn.microsoft.com/ru-ru/previous-versions/windows/apps/hh977046(v=win.10)
 
-## Bugs
-- No notifications :(
 
 ## TODO
-- Improve UI
-- Fix background task run
+- Improve UI (CSS injection, etc.)
+- Test & Fix background task ...
 
 ## ..
 As is. No support. RnD it yourself.

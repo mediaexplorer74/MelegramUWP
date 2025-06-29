@@ -9,14 +9,15 @@ namespace MelegramUWP
         public static async void Register()
         {
             // Проверяем, зарегистрирована ли задача
-            foreach (var task in BackgroundTaskRegistration.AllTasks)
+            foreach (System.Collections.Generic.KeyValuePair<Guid, IBackgroundTaskRegistration> task in BackgroundTaskRegistration.AllTasks)
             {
                 if (task.Value.Name == "NotificationTask")
                     return;
             }
             // Запрашиваем разрешение
             var status = await BackgroundExecutionManager.RequestAccessAsync();
-            if (status == BackgroundAccessStatus.DeniedByUser || status == BackgroundAccessStatus.DeniedBySystemPolicy)
+            if (status == BackgroundAccessStatus.DeniedByUser 
+                || status == BackgroundAccessStatus.DeniedBySystemPolicy)
             {
                 // Пользователь отказал в доступе либо система не позволяет использовать фоновые задачи
                 Debug.WriteLine("[!] Background tasks are not allowed.");
@@ -26,7 +27,7 @@ namespace MelegramUWP
             try
             {
                 // Регистрируем задачу
-                var builder = new BackgroundTaskBuilder
+                BackgroundTaskBuilder builder = new BackgroundTaskBuilder
                 {
                     Name = "NotificationTask",
                     TaskEntryPoint = "BackgroundTasks.NotificationTask"
