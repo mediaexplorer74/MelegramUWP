@@ -12,9 +12,9 @@ namespace Melegram.Helpers
     public class NotificationHelper
     {
         private const string _milestoneTaskEntryPoint = "Notifications.Notifications";
-        private const string _timeZoneTaskEntryPoint = "Notifications.TimeZoneChange";
         private const string _tileTaskEntryPoint = "Notifications.Tiles";
-        private const int _minutesInADay = 15;//1440;
+        //private const string _timeZoneTaskEntryPoint = "Notifications.TimeZoneChange";
+        private const int _intervalInMinutes = 15;//1440;
 
 
         internal static void SendTutorialNotifcation()
@@ -26,16 +26,16 @@ namespace Melegram.Helpers
                     BindingGeneric = new ToastBindingGeneric()
                     {
                         Children =
-            {
-                new AdaptiveText()
-                {
-                    Text = "Thanks for downloading this app!"
-                },
-                new AdaptiveText()
-                {
-                    Text = "We'll send progress milestone notifcations at 5% intervals."
-                }
-            }
+                        {
+                            new AdaptiveText()
+                            {
+                                Text = "Thanks for downloading this app!"
+                            },
+                            new AdaptiveText()
+                            {
+                                Text = "We'll send progress milestone notifcations at 5% intervals."
+                            }
+                        }
                     }
                 }
             };
@@ -48,17 +48,16 @@ namespace Melegram.Helpers
         }
 
 
+        // RegisterBackgroundTasks
         public void RegisterBackgroundTasks()
         {
-
             RegisterMilestoneTask();
-            RegisterTimeZoneChangeTask();
             RegisterTileNotification();
-
-
-
+            //RegisterTimeZoneChangeTask();
         }
 
+
+        // RegisterTileNotification
         private void RegisterTileNotification()
         {
             bool taskRegistered = false;
@@ -84,7 +83,7 @@ namespace Melegram.Helpers
             }
         }
 
-        private void RegisterTimeZoneChangeTask()
+        /*private void RegisterTimeZoneChangeTask()
         {
             bool taskRegistered = false;
             string taskName = "timeZoneTask";
@@ -107,8 +106,9 @@ namespace Melegram.Helpers
                 builder.SetTrigger(new SystemTrigger(SystemTriggerType.TimeZoneChange, false));
                 BackgroundTaskRegistration task = builder.Register();
             }
-        }
+        }*/
 
+        // RegisterMilestoneTask
         private void RegisterMilestoneTask()
         {
             bool taskRegistered = false;
@@ -129,7 +129,7 @@ namespace Melegram.Helpers
 
                 builder.Name = taskName;
                 builder.TaskEntryPoint = _milestoneTaskEntryPoint;
-                builder.SetTrigger(new TimeTrigger(_minutesInADay, false));
+                builder.SetTrigger(new TimeTrigger(_intervalInMinutes, false));
 
                 builder.AddCondition(new SystemCondition(SystemConditionType.UserPresent));
 

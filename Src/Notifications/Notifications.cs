@@ -10,18 +10,16 @@ using System.Diagnostics;
 using Windows.ApplicationModel.Background;
 using Windows.UI.Notifications;
 using Microsoft.Toolkit.Uwp.Notifications;
-using Notifications.Helpers;
-using Notifications.Model;
 
 
 namespace Notifications
 {
     public sealed class Notifications : IBackgroundTask
     {
-        int savedProgress;
-        bool hasSavedProgressChanged = false;
-        DateCalc dateCalculation = new DateCalc();
-        SettingsHelper settingsHelper = new SettingsHelper();
+        //int savedProgress;
+        //bool hasSavedProgressChanged = false;
+        //DateCalc dateCalculation = new DateCalc();
+        //SettingsHelper settingsHelper = new SettingsHelper();
 
 
 
@@ -44,7 +42,7 @@ namespace Notifications
 
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
-            int yearProgress = 50;//dateCalculation.yearProgressPercentage;
+            /*int yearProgress = 50;//dateCalculation.yearProgressPercentage;
 
             hasSavedProgressChanged = isDifferentToSavedProgress(yearProgress);
 
@@ -53,7 +51,7 @@ namespace Notifications
                 SendAMilestoneNotification(yearProgress);
             }
 
-            StoreYearProgressIfNew(yearProgress);
+            StoreYearProgressIfNew(yearProgress);*/
 
 
             //BackgroundTaskDeferral deferral = taskInstance.GetDeferral();
@@ -91,14 +89,16 @@ namespace Notifications
                 if (true)//(notifCount > lastCount)
                 {
                     // Показать toast-уведомление
-                    string toastXml = $@"<toast><visual><binding template='ToastGeneric'>
+                    /*string toastXml = $@"<toast><visual><binding template='ToastGeneric'>
                         <text>Новые сообщения</text>
-                        <text>У вас {notifCount - lastCount} новых сообщений!</text>
+                        <text>У вас {notifCount} непрочитанных сообщений!</text>
                     </binding></visual></toast>";
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.LoadXml(toastXml);
                     ToastNotification notif = new ToastNotification(xmlDoc);
-                    ToastNotificationManager.CreateToastNotifier().Show(notif);
+                    ToastNotificationManager.CreateToastNotifier().Show(notif);*/
+
+                    SendCountNotification(notifCount);
                 }
 
                 // Сохраняем новое значение
@@ -115,7 +115,7 @@ namespace Notifications
             }
         }
 
-
+        /*
         private void StoreYearProgressIfNew(int yearProgress)
         {
             if (hasSavedProgressChanged)
@@ -123,24 +123,28 @@ namespace Notifications
                 settingsHelper.SetYearProgress(yearProgress);
             }
         }
+        */
 
+        /*
         private bool isDifferentToSavedProgress(int yearProgress)
         {
             savedProgress = settingsHelper.GetStoredYearProgress();
             hasSavedProgressChanged = yearProgress != savedProgress;
             return hasSavedProgressChanged;
         }
+        */
 
-        private void SendAMilestoneNotification(int yearProgress)
+        private void SendCountNotification(int count)
         {
 
-            SendRegularMilestoneNotification(yearProgress);
+            var text = $"New {count}% messages detected!";
+            SendRegularCountNotification(text);
 
         }
 
 
 
-        public void SendRegularMilestoneNotification(int yearProgress)
+        public void SendRegularCountNotification(string text)
         {
             var toastContent = new ToastContent()
             {
@@ -149,13 +153,13 @@ namespace Notifications
                     BindingGeneric = new ToastBindingGeneric()
                     {
                         Children =
-            {
-                new AdaptiveText()
-                {
-                    Text = $"{dateCalculation.currentDate.Year} Is {yearProgress}% Complete!"
-                }
+                        {
+                            new AdaptiveText()
+                            {
+                                Text = text
+                            }
 
-            }
+                        }
                     }
                 }
             };
@@ -165,8 +169,8 @@ namespace Notifications
 
             // And send the notification
             ToastNotificationManager.CreateToastNotifier().Show(toastNotif);
-        }
 
+        }//SendRegularCountNotification
 
     }
 }

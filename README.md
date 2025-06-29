@@ -1,4 +1,4 @@
-## Melegram 2.0.0-alpha - main branch
+## Melegram 2.0.1-alpha - v2 branch
 
 ![](/Images/logo.png)
 

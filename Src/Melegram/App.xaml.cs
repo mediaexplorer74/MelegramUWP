@@ -1,5 +1,5 @@
 ﻿using Microsoft.Services.Store.Engagement;
-using Notifications.Helpers;
+//using Notifications.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -118,7 +118,7 @@ namespace Melegram
             {
                 case Mango.Enums.appVersionStatus.FirstTime:
                     NotificationHelper.SendTutorialNotifcation();
-                    InitalizeYearProgress();
+                    //InitalizeYearProgress();
                     startupHelper.shouldAskForTilePinning = true;
                     break;
                 case Mango.Enums.appVersionStatus.Old:   
@@ -130,8 +130,8 @@ namespace Melegram
 
         private void InitalizeYearProgress()
         {
-            SettingsHelper settingsHelper = new SettingsHelper();
-            settingsHelper.ResetProgressValueSettings();
+            //SettingsHelper settingsHelper = new SettingsHelper();
+            //settingsHelper.ResetProgressValueSettings();
         }
 
         protected async override void OnActivated(IActivatedEventArgs args)

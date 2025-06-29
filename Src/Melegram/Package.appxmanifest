@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap mp uap3">
-  <Identity Name="ME.MelegramV2" Publisher="CN=Admin" Version="2.0.0.0" />
+  <Identity Name="ME.MelegramV2" Publisher="CN=Admin" Version="2.0.1.0" />
   <mp:PhoneIdentity PhoneProductId="5828ee79-970e-4e18-a51e-f1d6975e16c3" PhonePublisherId="00001133-0700-5008-0060-000060809001" />
   <Properties>
-    <DisplayName>Year Progress</DisplayName>
+    <DisplayName>Melegram v2.0.1</DisplayName>
     <PublisherDisplayName>mediaexplorer</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Melegram.App">
-      <uap:VisualElements DisplayName="Melegram" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Melegram, cloud TG client (UWP app)" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Melegram v2.0.1" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Melegram, cloud TG client (UWP app)" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
@@ -33,11 +33,6 @@
           <BackgroundTasks>
             <Task Type="timer" />
             <Task Type="pushNotification" />
-          </BackgroundTasks>
-        </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notifications.TimeZoneChange">
-          <BackgroundTasks>
-            <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
       </Extensions>

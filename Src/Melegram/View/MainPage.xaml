@@ -13,12 +13,7 @@
                  NavigationFailed="Browser_NavigationFailed" />
 
 
-         <ProgressBar
-         Margin="80,40"
-         Value="0"
-         Foreground="White"
-         Name="MyProgressBar"/>
-        
+              
 
         <CommandBar VerticalAlignment="Bottom">
             <AppBarButton Icon="Back" Label="Back" Click="BackApplicationBar_Click" />

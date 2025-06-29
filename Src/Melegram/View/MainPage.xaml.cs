@@ -147,18 +147,18 @@ namespace Melegram.View
                         = cookieString;
 
                     // CSS-инъекция для увеличения отступов между элементами
-                    /*string css = @"
+                    string css = @"
                     .c { margin-bottom: 16px !important; }
                     .ctext { padding-bottom: 8px !important; }
                     .cm { margin-bottom: 8px !important; }
                     .hed, .hb { margin-bottom: 12px !important; }
-                    ";*/
-                    string css = @"
+                    ";
+                    /*string css = @"
                     .c { margin-bottom: 36px !important; }
                     .ctext { padding-bottom: 18px !important; }
                     .cm { margin-bottom: 8px !important; }
                     .hed, .hb { margin-bottom: 42px !important; }
-                    ";
+                    ";*/
 
 
                     string script = $@"
@@ -221,15 +221,18 @@ namespace Melegram.View
         private void ab_Click(object sender, RoutedEventArgs e)
         {
             Windows.Foundation.IAsyncOperation<IUICommand> r 
-                = new MessageDialog("Melegram BETA 2.0 Build 20250627").ShowAsync();
+                = new MessageDialog("Melegram BETA 2.0.1 Build 20250629").ShowAsync();
         }
 
         // Experimental **********************
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            
             await ReviewHelper.TryRequestReview();
-            AnimateProgressBar();
+            
+            //AnimateProgressBar();
+            
             if (App.startupHelper.shouldAskForTilePinning)
             {
                 try
@@ -245,7 +248,7 @@ namespace Melegram.View
 
 
 
-        private void AnimateProgressBar()
+        /*private void AnimateProgressBar()
         {
 
             const int numberOfIntervals = 25;
@@ -262,7 +265,7 @@ namespace Melegram.View
             };
             progressTimer.StartTimer();
 
-        }
+        }*/
         // ***********************************
     }
 }
